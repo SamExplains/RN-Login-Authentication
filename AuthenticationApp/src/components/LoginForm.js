@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {Text} from 'react-native';
 import firebase from 'firebase';
-import {Button, Card, CardSection, Input} from "./common";
-import {Spinner} from "./common/Spinner";
+import {Button, Card, CardSection, Input, Spinner} from "./common";
 
 class LoginForm extends  Component{
   state = { email: '', password: '', error: '', loading: false };
@@ -17,7 +16,7 @@ class LoginForm extends  Component{
         /*Attempt to Create user account if not user is found*/
         firebase.auth().createUserWithEmailAndPassword(email, password)
           .then(this.onLoginSuccess.bind(this))
-          .catch( this.onLoginFail.bind(this));
+          .catch( this.onLoginFail.bind(this) );
       });
   };
 
